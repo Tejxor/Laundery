@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 
 namespace LaunderySystem.Models
-{
+{//test
     public class AdminUser
     {
         public int Id { get; set; }
