@@ -1,0 +1,169 @@
+﻿@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login, registration forms">
+    <meta name="author" content="Seong Lee">
+    <title>Admin Login</title>
+    <!-- Stylesheets -->
+    <link href="~/Content/Login/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Login/css/animation.css" rel="stylesheet">
+    <link href="~/Content/Login/css/checkbox/orange.css" rel="stylesheet">
+    <link href="~/Content/Login/css/preview.css" rel="stylesheet">
+    <link href="~/Content/Login/css/authenty.css" rel="stylesheet">
+
+    <!-- Font Awesome CDN -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <section id="authenty_preview">
+        <section id="signin_main" class="authenty signin-main">
+            <div class="section-content">
+                <div class="wrap">
+                    <div class="container">
+                        <div class="form-wrap">
+                            <div class="row">
+                                <div class="title" data-animation="fadeInDown" data-animation-delay=".8s">
+                                    <h1>Admin Login</h1>
+                                </div>
+
+                                <div id="form_1" data-animation="bounceIn">
+                                    @if (TempData["Message"] != null)
+                                    {
+                                        <div align="center" class="alert alert-warning" style="color: red">
+                                            @TempData["Message"].ToString()
+                                        </div>
+
+                                    }
+                                    else
+                                    {
+
+                                        <div class="form-header">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                    }
+
+
+
+                                    <form action="@Url.Content("/Nz77jh92/Login/")" method="POST" name="signIn_1">
+                                        <div class="form-main">
+                                            <div class="form-group">
+                                                <input type="text" name="user" class="form-control" placeholder="Användarnamn" required="required">
+                                                <input type="password" name="pass" class="form-control" placeholder="Lösenord" required="required">
+                                            </div>
+                                            <button id="signIn_1" type="submit" class="btn btn-block signin">Logga in</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+
+    <!-- js library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+    <script src="~/Content/Login/js/bootstrap.min.js"></script>
+    <script src="~/Content/Login/js/jquery.icheck.min.js"></script>
+    <script src="~/Content/Login/js/waypoints.min.js"></script>
+
+    <!-- authenty js -->
+    <script src="~/Content/Login/js/authenty.js"></script>
+
+    <!-- preview scripts -->
+    <script src="~/Content/Login/js/preview/jquery.malihu.PageScroll2id.js"></script>
+    <script src="~/Content/Login/js/preview/jquery.address-1.6.min.js"></script>
+    <script src="~/Content/Login/js/preview/scrollTo.min.js"></script>
+    <script src="~/Content/Login/js/preview/init.js"></script>
+
+
+    <!-- preview scripts -->
+    <script>
+        (function ($) {
+
+            // get full window size
+            $(window).on('load resize', function () {
+                var w = $(window).width();
+                var h = $(window).height();
+
+                $('section').height(h);
+            });
+
+            // scrollTo plugin
+            $('#signup_from_1').scrollTo({ easing: 'easeInOutQuint', speed: 1500 });
+            $('#forgot_from_1').scrollTo({ easing: 'easeInOutQuint', speed: 1500 });
+            $('#signup_from_2').scrollTo({ easing: 'easeInOutQuint', speed: 1500 });
+            $('#forgot_from_2').scrollTo({ easing: 'easeInOutQuint', speed: 1500 });
+            $('#forgot_from_3').scrollTo({ easing: 'easeInOutQuint', speed: 1500 });
+
+
+            // set focus on input
+            var firstInput = $('section').find('input[type=text], input[type=email]').filter(':visible:first');
+
+            if (firstInput != null) {
+                firstInput.focus();
+            }
+
+            $('section').waypoint(function (direction) {
+                var target = $(this).find('input[type=text], input[type=email]').filter(':visible:first');
+                target.focus();
+            }, {
+                offset: 300
+            }).waypoint(function (direction) {
+                var target = $(this).find('input[type=text], input[type=email]').filter(':visible:first');
+                target.focus();
+            }, {
+                offset: -400
+            });
+
+
+            // animation handler
+            $('[data-animation-delay]').each(function () {
+                var animationDelay = $(this).data("animation-delay");
+                $(this).css({
+                    "-webkit-animation-delay": animationDelay,
+                    "-moz-animation-delay": animationDelay,
+                    "-o-animation-delay": animationDelay,
+                    "-ms-animation-delay": animationDelay,
+                    "animation-delay": animationDelay
+                });
+            });
+
+            $('[data-animation]').waypoint(function (direction) {
+                if (direction == "down") {
+                    $(this).addClass("animated " + $(this).data("animation"));
+                }
+            }, {
+                offset: '90%'
+            }).waypoint(function (direction) {
+                if (direction == "up") {
+                    $(this).removeClass("animated " + $(this).data("animation"));
+                }
+            }, {
+                offset: '100%'
+            });
+
+        })(jQuery);
+    </script>
+</body>
+</html>

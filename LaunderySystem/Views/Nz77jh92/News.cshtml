@@ -1,0 +1,55 @@
+﻿@model IEnumerable<LaunderySystem.Models.News>
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<aside class="right-side">
+    <div class="row">
+        <div class="col-md-9">
+            <!--earning graph start-->
+            <section class="panel">
+                <header class="panel-heading">
+                    Test Tables
+                </header>
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DateAndTime)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.launderyRoom)
+                            </th>
+                            <th>@Html.Label("Modifications")</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateAndTime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.launderyRoom.Adress)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditNews", new { id = item.Id }) |
+                                    @Html.ActionLink("Delete", "DeleteNews", new { id = item.Id })
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+</aside><!-- /.right-side -->

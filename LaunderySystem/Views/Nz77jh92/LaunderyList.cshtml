@@ -1,0 +1,49 @@
+﻿@model IEnumerable<LaunderySystem.Models.LaunderyRoom>
+@{
+    ViewBag.Title = "LaunderyList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<aside class="right-side">
+    <div class="row">
+        <div class="col-md-9">
+            <!--earning graph start-->
+            <section class="panel">
+                <header class="panel-heading">
+                    Test Tables
+                </header>
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Adress)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NumbersOfGroups)
+                            </th>
+                            <th>@Html.Label("Modifications")</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Adress)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NumbersOfGroups)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditLaundery", new { id = item.Id }) |
+                                    @Html.ActionLink("Delete", "DeleteLaundery", new { id = item.Id })
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+</aside><!-- /.right-side -->

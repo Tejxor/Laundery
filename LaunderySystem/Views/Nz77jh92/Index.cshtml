@@ -1,0 +1,48 @@
+﻿@model IEnumerable<LaunderySystem.Models.UserProfile>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<aside class="right-side">
+    <section class="content">
+
+        <div class="row" style="margin-bottom:5px;">
+
+
+            <div class="col-md-3">
+                <div class="sm-st clearfix">
+                    <span class="sm-st-icon st-green"><i class="fa fa-plus-circle"></i></span>
+                    <div class="sm-st-info">
+                        <span>@Html.ActionLink("Create User", "CreateUser", "Nz77jh92")</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sm-st clearfix">
+                    <span class="sm-st-icon st-green"><i class="fa fa-plus-circle"></i></span>
+                    <div class="sm-st-info">
+                        <span>@Html.ActionLink("Create Laundery", "CreateLaundery", "Nz77jh92")</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sm-st clearfix">
+                    <span class="sm-st-icon st-blue"><i class="fa fa-list"></i></span>
+                    <div class="sm-st-info">
+                        <span>@Html.ActionLink("User List", "UserList", "Nz77jh92")</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sm-st clearfix">
+                    <span class="sm-st-icon st-blue"><i class="fa fa-list"></i></span>
+                    <div class="btn btn-success">
+                        <span>@Html.ActionLink("Laundery List", "LaunderyList", "Nz77jh92")</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</aside><!-- /.right-side -->

@@ -1,0 +1,38 @@
+﻿@model LaunderySystem.Models.LaunderyRoom
+@{
+    ViewBag.Title = "EditLaundery";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<aside class="right-side">
+    @using (Html.BeginForm("EditLaundery", "Nz77jh92", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.Id)
+        <div class="form-horizontal">
+            <hr />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Adress, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Adress, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.NumbersOfGroups, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NumbersOfGroups, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NumbersOfGroups, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    }
+
+
+</aside><!-- /.right-side -->

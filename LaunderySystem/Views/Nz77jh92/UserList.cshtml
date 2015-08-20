@@ -1,0 +1,63 @@
+﻿@model IEnumerable<LaunderySystem.Models.UserProfile>
+
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<aside class="right-side">
+    <div class="row">
+        <div class="col-md-9">
+            <!--earning graph start-->
+            <section class="panel">
+                <header class="panel-heading">
+                    Test Tables
+                </header>
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th>
+
+                                @Html.DisplayNameFor(model => model.FirstName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LastName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LaunderyRoom.Adress)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserName)
+                            </th>
+                            <th>@Html.Label("Modifications")</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FirstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LaunderyRoom.Adress)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserName)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditUser", new { id = item.Id }) |
+                                    @Html.ActionLink("Delete", "DeleteUser", new { id = item.Id })
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                </div>
+            </section>
+        </div>
+        </div>
+
+
+</aside><!-- /.right-side -->
